@@ -33,6 +33,11 @@
 .main__content{
     position: relative;
     padding: 4rem 1.65rem;
+    
+    @include table {
+        --padding: calc( 1.65rem + 12vw);
+        padding: 4rem var(--padding);
+    }
 }
 
 .main__title {
@@ -47,6 +52,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    
+    @include table {
+        margin-top: 6rem;
+        flex-direction: row;
+    }
 }
 
 .price-card {
@@ -63,17 +73,10 @@
     background-color: white;
     border-radius: 15px;
     
-    &--card2{
-        background: hsl(236, 72%, 79%)
-    }
 
     &__title {
         font-size: 1.2rem;
         padding: 1rem;
-
-        &--card2{
-            color: white;
-        }
     }
     
     &__price {
@@ -85,30 +88,17 @@
         span {
             font-size: 2.5rem;
         }
-
-        &--card2{
-            color: white;
-        }
-
     }
     
     &__txt {
         width: 100%;
         padding: 1.1rem;
         text-align: center;
-        border-top: 1px solid var(--light-grayish-blue);
+        color: inherit;
+        border-top: 1px solid;
         
         &:last-of-type {
-            border-bottom: 1px solid var(--light-grayish-blue);
-        }
-        
-        &--card2{
-            border-top: 1px solid white;
-            color: white;
- 
-            &:last-of-type {
-                border-bottom: 1px solid white;
-            }
+            border-bottom: 1px solid;
         }
     }
 
@@ -125,14 +115,45 @@
         border: 1px solid hsl(236, 72%, 79%);
         color: white;
         background-color: hsl(236, 72%, 79%);
-        
-        &--card2{
-            border: 1px solid white;
+
+        &:hover{
+            border: 1px solid var(--dark-grayish-blue);
             color: hsl(236, 72%, 79%);
             background-color: white;
         }
+    }
+}
+
+.price-card--card2{
+
+    background: hsl(236, 72%, 79%);
+
+    .price-card__title,
+    .price-card__price, 
+    .price-card__txt, 
+    .price-card__btn {
+        color: white;
+    }
+    
+    .price-card__btn {
+        border: 1px solid white;
+        color: hsl(236, 72%, 79%);
+        background-color: white;
+
+        &:hover{
+            border: 1px solid white;
+            color: white;
+            background-color: hsl(236, 72%, 79%);
+        }
 
     }
+
+    @include table {
+        padding-top: 2.6em;
+        padding-bottom: 2.6rem;
+    }
+
+
 }
 
 .hidden {
