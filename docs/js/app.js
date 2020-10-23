@@ -1,1 +1,1 @@
-"use strict";
+"use strict";var isMonthly=document.getElementById("monthly"),cards=document.getElementById("cards");isMonthly.addEventListener("click",(function(e){document.querySelectorAll(".price-card__price").forEach((function(e){e.classList.toggle("hidden")}))}));
